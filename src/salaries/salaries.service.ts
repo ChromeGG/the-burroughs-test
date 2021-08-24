@@ -21,7 +21,6 @@ export class SalariesService {
     };
 
     const daysInterval = eachMonthOfInterval(interval);
-    console.log(daysInterval);
 
     for (const day of daysInterval) {
       let payday: Date;
