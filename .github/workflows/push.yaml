@@ -24,15 +24,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # TODO change to yarn
       - name: Install dependencies
-        run: yarn
+        run: npm ci
       
       - name: Lint code
-        run: yarn lint
+        run: npm run lint
       
       - name: Run tests
-        run: yarn test
+        run: npm run test
       
       - name: Run e2e tests
-        run: yarn test
+        run: npm run test
