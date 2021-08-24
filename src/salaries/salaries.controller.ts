@@ -1,6 +1,6 @@
 import { Controller, Get, Header, Param } from '@nestjs/common';
 import { SalariesService } from './salaries.service';
-import { StartDateDto } from './dto/create-salary.dto';
+import { StartDateDto } from './dto/startDate.dto';
 
 @Controller('salaries')
 export class SalariesController {
