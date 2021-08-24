@@ -20,8 +20,6 @@ export class SalariesService {
       end: addMonths(startDate, 12),
     };
 
-    console.log(interval);
-
     const daysInterval = eachMonthOfInterval(interval);
     console.log(daysInterval);
 
