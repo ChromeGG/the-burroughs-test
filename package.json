@@ -1,8 +1,8 @@
 {
   "name": "the-burroughs-test",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Small API to help a small ﬁctional company calculate the dates on which they should pay their sales staff",
+  "author": "Adam Tkaczyk",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
