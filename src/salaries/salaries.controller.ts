@@ -1,13 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Header, Param } from '@nestjs/common';
 import { SalariesService } from './salaries.service';
-import { CreateSalaryDto } from './dto/create-salary.dto';
+import { StartDateDto } from './dto/create-salary.dto';
 
 @Controller('salaries')
 export class SalariesController {
   constructor(private readonly salariesService: SalariesService) {}
 
-  @Get()
-  findAll() {
-    return this.salariesService.findAll();
+  @Get(':startDate')
+  @Header('Content-type', 'text/csv')
+  async getSalaries(@Param() startDateDto: StartDateDto) {
+    const { startDate } = startDateDto;
+    return this.salariesService.generateSalariesDates(new Date(startDate));
   }
 }
