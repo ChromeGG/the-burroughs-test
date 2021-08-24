@@ -1,1 +1,3 @@
-export class CreateSalaryDto {}
+export class StartDateDto {
+  readonly startDate: Date;
+}
