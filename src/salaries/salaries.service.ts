@@ -9,7 +9,7 @@ import {
   isWeekend,
   nextWednesday,
 } from 'date-fns';
-import { toIsoDate, getDayFromMonth, removeTimeZone } from './helper';
+import { toIsoDate, getDayFromMonth, convertToCSV } from './helper';
 
 @Injectable()
 export class SalariesService {
@@ -44,6 +44,10 @@ export class SalariesService {
       salaries.push({ payday, bonus });
     }
 
-    return salaries;
+    const isoFormattedSalaries = salaries.map(({ payday, bonus }) => {
+      return { payday: toIsoDate(payday), bonus: toIsoDate(bonus) };
+    });
+
+    return convertToCSV(isoFormattedSalaries);
   }
 }

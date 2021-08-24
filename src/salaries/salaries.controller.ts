@@ -8,7 +8,7 @@ export class SalariesController {
 
   @Get(':startDate')
   @Header('Content-type', 'text/csv')
-  getSalaries(@Param() startDateDto: StartDateDto) {
+  async getSalaries(@Param() startDateDto: StartDateDto) {
     const { startDate } = startDateDto;
     return this.salariesService.generateSalariesDates(new Date(startDate));
   }

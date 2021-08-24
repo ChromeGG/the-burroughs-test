@@ -15,3 +15,14 @@ export function getDayFromMonth(day: Date, dayOfMonth = 1) {
   }
   return new Date(`${day.getFullYear()}-${month}-${dayOfMonth}`);
 }
+
+// TODO Add library to convert
+export function convertToCSV(arr = []) {
+  const array = [Object.keys(arr[0])].concat(arr);
+
+  return array
+    .map((it) => {
+      return Object.values(it).toString();
+    })
+    .join('\n');
+}
