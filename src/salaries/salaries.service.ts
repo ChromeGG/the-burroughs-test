@@ -9,7 +9,12 @@ import {
   isWeekend,
   nextWednesday,
 } from 'date-fns';
-import { toIsoDate, getDayFromMonth, convertToCSV } from './helper';
+import {
+  toIsoDate,
+  getDayFromMonth,
+  convertToCSV,
+  removeTimeZone,
+} from './helper';
 
 @Injectable()
 export class SalariesService {
@@ -20,7 +25,9 @@ export class SalariesService {
       end: addMonths(startDate, 12),
     };
 
-    const daysInterval = eachMonthOfInterval(interval);
+    const daysInterval = eachMonthOfInterval(interval).map((date) =>
+      removeTimeZone(date),
+    );
 
     for (const day of daysInterval) {
       let payday: Date;
